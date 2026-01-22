@@ -35,13 +35,13 @@ app.listen(PORT, () => {
   console.log('║          NotebookLM Server Started Successfully          ║');
   console.log('╚══════════════════════════════════════════════════════════╝');
   console.log(`\n🚀 Server running on http://localhost:${PORT}`);
-  console.log(`🤖 AI Mode: ${aiProvider === 'gemini' ? 'LearnLM (Detailed)' : 'Qwen (Fast)'}`);
-  console.log(`⚡ Powered by: Google Gemini 2.0 Flash`);
-  console.log(`📚 Model: ${process.env.GEMINI_MODEL || 'LEARN LM'}`);
+  console.log(`🤖 AI Mode: ${aiProvider === 'gemini' ? 'Qwen 2.5 (Detailed)' : 'Qwen 2.5 (Fast)'}`);
+  console.log(`⚡ Powered by: Qwen 2.5`);
+  console.log(`📚 Model: ${process.env.GEMINI_MODEL || 'Qwen2.5-32B-Instruct'}`);
   console.log(`🔑 API Key: ${process.env.GEMINI_API_KEY ? '✓ Configured' : '✗ Missing'}`);
   
   console.log(`\n💡 Toggle between modes:`);
-  console.log(`   - LearnLM: Detailed, comprehensive content`);
-  console.log(`   - Qwen: Fast, concise responses`);
+  console.log(`   - Qwen 2.5: Detailed, comprehensive content`);
+  console.log(`   - Qwen 2.5 Fast: Fast, concise responses`);
   console.log(`\n⏳ Waiting for requests...\n`);
 });

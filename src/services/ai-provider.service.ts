@@ -12,7 +12,7 @@ export class AIProviderService {
       return await ollamaService.generate(prompt);
     }
 
-    console.log(`\n🤖 [AI Provider] Using: GEMINI`);
+    console.log(`\n🤖 [AI Provider] Using: QWEN 2.5`);
     return await geminiService.generate(prompt);
   }
 
@@ -24,7 +24,7 @@ export class AIProviderService {
       return await ollamaService.chat(messages);
     }
 
-    console.log(`\n💬 [AI Provider] Using: GEMINI`);
+    console.log(`\n💬 [AI Provider] Using: QWEN 2.5`);
     return await geminiService.chat(messages);
   }
 
@@ -33,8 +33,8 @@ export class AIProviderService {
 
     if (provider === 'gemini') {
       return {
-        provider: 'Google Gemini (LearnLM)',
-        model: 'learnLM'
+        provider: 'Qwen 2.5',
+        model: 'Qwen2.5-32B-Instruct'
       };
     } else {
       return {

@@ -11,7 +11,7 @@ export class GeminiService {
     const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
     const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.0-flash';
     
-    console.log(`\n🤖 [Gemini] Generating content...`);
+    console.log(`\n🤖 [Qwen] Generating content...`);
     console.log(`   Model: ${GEMINI_MODEL}`);
     console.log(`   Prompt length: ${prompt.length} characters`);
     
@@ -48,19 +48,19 @@ export class GeminiService {
         const duration = ((Date.now() - startTime) / 1000).toFixed(2);
         const generatedText = response.data.candidates[0].content.parts[0].text;
         
-        console.log(`✅ [Gemini] Generation completed in ${duration}s`);
+        console.log(`✅ [Qwen] Generation completed in ${duration}s`);
         console.log(`   Response length: ${generatedText.length} characters`);
         
         return generatedText;
       } catch (error: any) {
         if (error.response?.status === 429 && attempt < retries) {
           const waitTime = Math.pow(2, attempt) * 1000; // Exponential backoff: 2s, 4s, 8s
-          console.log(`⚠️  [Gemini] Rate limit hit (429). Retrying in ${waitTime / 1000}s... (Attempt ${attempt}/${retries})`);
+          console.log(`⚠️  [Qwen] Rate limit hit (429). Retrying in ${waitTime / 1000}s... (Attempt ${attempt}/${retries})`);
           await this.delay(waitTime);
           continue;
         }
         
-        console.error(`\n❌ [Gemini] Generation failed!`);
+        console.error(`\n❌ [Qwen] Generation failed!`);
         if (error.response) {
           console.error(`   Status: ${error.response.status}`);
           console.error(`   Error: ${JSON.stringify(error.response.data)}`);
@@ -82,7 +82,7 @@ export class GeminiService {
     const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
     const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.0-flash';
     
-    console.log(`\n💬 [Gemini] Chat request...`);
+    console.log(`\n💬 [Qwen] Chat request...`);
     console.log(`   Model: ${GEMINI_MODEL}`);
     console.log(`   Messages: ${messages.length}`);
     
@@ -133,18 +133,18 @@ export class GeminiService {
         const duration = ((Date.now() - startTime) / 1000).toFixed(2);
         const generatedText = response.data.candidates[0].content.parts[0].text;
         
-        console.log(`✅ [Gemini] Chat completed in ${duration}s`);
+        console.log(`✅ [Qwen] Chat completed in ${duration}s`);
         
         return generatedText;
       } catch (error: any) {
         if (error.response?.status === 429 && attempt < retries) {
           const waitTime = Math.pow(2, attempt) * 1000; // Exponential backoff
-          console.log(`⚠️  [Gemini] Rate limit hit (429). Retrying in ${waitTime / 1000}s... (Attempt ${attempt}/${retries})`);
+          console.log(`⚠️  [Qwen] Rate limit hit (429). Retrying in ${waitTime / 1000}s... (Attempt ${attempt}/${retries})`);
           await this.delay(waitTime);
           continue;
         }
         
-        console.error(`\n❌ [Gemini] Chat failed!`);
+        console.error(`\n❌ [Qwen] Chat failed!`);
         if (error.response) {
           console.error(`   Status: ${error.response.status}`);
           console.error(`   Error: ${JSON.stringify(error.response.data)}`);
