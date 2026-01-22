@@ -94,7 +94,7 @@ Audio overview:`;
     return result.trim();
   }
 
-  async generateVideoOverview(text: string): Promise<string> {
+  async generateVideoOverview(text: string, documentId?: string): Promise<string> {
     console.log(`\n🎬 [AI] Generating Video Overview...`);
     
     const prompt = this.isQwen()

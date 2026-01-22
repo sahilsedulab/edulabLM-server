@@ -1,4 +1,4 @@
-import { createCanvas } from 'canvas';
+import { createCanvas, CanvasRenderingContext2D } from 'canvas';
 import fs from 'fs';
 import path from 'path';
 import { promisify } from 'util';
